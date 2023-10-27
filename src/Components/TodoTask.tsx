@@ -1,5 +1,6 @@
 import React from "react";
 import { ITask } from "../Interfaces";
+import copy from 'clipboard-copy'; // Import clipboard-copy
 
 interface Props {
   task: ITask;
@@ -16,10 +17,16 @@ const TodoTask = ({ task, completeTask }: Props) => {
       <button
         onClick={() => {
           completeTask(task.taskName);
+          
         }}
       >
-        X
+        Delete
       </button>
+      // Inside your TodoTask component
+<button onClick={() => props.copyToClipboard(props.task.taskName)}>Copy</button>
+
+
+
     </div>
   );
 };

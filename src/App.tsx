@@ -2,12 +2,14 @@ import React, { FC, ChangeEvent, useState } from "react";
 import "./App.css";
 import TodoTask from "./Components/TodoTask";
 import { ITask } from "./Interfaces";
+import copy from 'clipboard-copy'; // Import clipboard-copy
 
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
   const [deadline, setDealine] = useState<number>(0);
-  const [search, setSearch] = useState<string>("");
   const [todoList, setTodoList] = useState<ITask[]>([]);
+  const [search, setSearch] = useState<string>("");
+
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     if (event.target.name === "task") {
@@ -30,7 +32,13 @@ const App: FC = () => {
         return task.taskName != taskNameToDelete;
       })
     );
+    
   };
+
+  const copyToClipboard = (content: string): void => {
+    copy(content); // Copy the content to the clipboard
+  };
+
 
   return (
     <div className="App">
@@ -62,9 +70,12 @@ const App: FC = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          
       <div className="todoList">
         {todoList.map((task: ITask, key: number) => {
           return <TodoTask key={key} task={task} completeTask={completeTask} />;
+          copyToClipboard={copyToClipboard}
+          
           
         })}
       </div>
