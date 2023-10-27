@@ -74,7 +74,7 @@ const App: FC = () => {
       <div className="todoList">
         {todoList.map((task: ITask, key: number) => {
           return <TodoTask key={key} task={task} completeTask={completeTask} />;
-          copyToClipboard={copyToClipboard}
+          // copyToClipboard={copyToClipboard}
           
           
         })}

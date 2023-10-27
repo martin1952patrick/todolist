@@ -8,6 +8,11 @@ interface Props {
 }
 
 const TodoTask = ({ task, completeTask }: Props) => {
+
+  const copyTaskToClipboard = () => {
+    // Copy the task content to the clipboard
+    copy(task.taskName);
+  };
   return (
     <div className="task">
       <div className="content">
@@ -23,7 +28,7 @@ const TodoTask = ({ task, completeTask }: Props) => {
         Delete
       </button>
       // Inside your TodoTask component
-<button onClick={() => props.copyToClipboard(props.task.taskName)}>Copy</button>
+{/* <button onClick={() => props.copyToClipboard(props.task.taskName)}>Copy</button> */}
 
 
 
