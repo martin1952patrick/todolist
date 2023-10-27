@@ -45,4 +45,4 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-By Martin Omollo[Github Link](https://github.com/martin1952patrick/todolist).
+By Martin Omollo [Github Link](https://github.com/martin1952patrick/todolist).
