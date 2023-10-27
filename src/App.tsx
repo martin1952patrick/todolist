@@ -6,6 +6,7 @@ import { ITask } from "./Interfaces";
 const App: FC = () => {
   const [task, setTask] = useState<string>("");
   const [deadline, setDealine] = useState<number>(0);
+  const [search, setSearch] = useState<string>("");
   const [todoList, setTodoList] = useState<ITask[]>([]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -49,16 +50,28 @@ const App: FC = () => {
             value={deadline}
             onChange={handleChange}
           />
+
         </div>
         <button onClick={addTask}>Add Task</button>
       </div>
+
+      <input
+            type="text"
+            placeholder="Search Task..."
+            name="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
       <div className="todoList">
         {todoList.map((task: ITask, key: number) => {
           return <TodoTask key={key} task={task} completeTask={completeTask} />;
+          
         })}
       </div>
     </div>
+    
   );
+  
 };
 
 export default App;
